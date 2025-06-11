@@ -70,19 +70,18 @@ body {
 }
 
 .sidebar ul {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-auto-flow: column; /* cria colunas automaticamente */
+  grid-template-rows: repeat(2, auto); /* 2 linhas horizontais */
+  gap: var(--spacing-sm);
+  list-style: none;
   padding: 0;
   margin: 0;
-  width: 100%;
-  list-style: none;
   justify-content: center;
-  gap: var(--spacing-sm);
 }
 
 .sidebar li {
-  width: 45%;
-  margin: 0;
+  width: 100%;
   text-align: center;
 }
 

@@ -5,4 +5,5 @@ export interface ProdutoType {
   quantidade: number;
   categoria_id: number;
   categoria?: string;
+  estoque_minimo: number;
 }

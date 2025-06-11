@@ -26,10 +26,10 @@ const ProdutoForm = ({ onSubmit, initialData }: Props) => {
   ) => {
     const { name, value } = e.target;
 
-    if (name === "quantidade") {
+    if (name === "quantidade" || name === "estoque_minimo") {
       setProduto((prev) => ({
         ...prev,
-        quantidade: Number(value),
+        [name]: Number(value),
       }));
     } else {
       setProduto((prevProduto) => ({
@@ -78,6 +78,17 @@ const ProdutoForm = ({ onSubmit, initialData }: Props) => {
           type="number"
           name="quantidade"
           value={produto.quantidade}
+          onChange={handleChange}
+          required
+        />
+      </div>
+
+      <div className="form-group">
+        <label>Estoque Mínimo</label>
+        <input
+          type="number"
+          name="estoque_minimo"
+          value={produto.estoque_minimo}
           onChange={handleChange}
           required
         />

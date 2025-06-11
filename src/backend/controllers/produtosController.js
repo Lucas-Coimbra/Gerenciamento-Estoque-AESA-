@@ -18,13 +18,14 @@ export const listarProdutos = async (req, res) => {
 
 export const criarProduto = async (req, res) => {
   try {
-    const { nome, descricao, preco, quantidade, categoria_id } = req.body;
+    const { nome, descricao, preco, quantidade, categoria_id, estoque_minimo } =
+      req.body;
 
     const [result] = await pool.query(
       `INSERT INTO produtos 
-       (nome, descricao, preco, quantidade, categoria_id) 
-       VALUES (?, ?, ?, ?, ?)`,
-      [nome, descricao, preco, quantidade, categoria_id]
+   (nome, descricao, preco, quantidade, categoria_id, estoque_minimo) 
+   VALUES (?, ?, ?, ?, ?, ?)`,
+      [nome, descricao, preco, quantidade, categoria_id, estoque_minimo]
     );
 
     const [novoProduto] = await pool.query(
@@ -48,14 +49,23 @@ export const criarProduto = async (req, res) => {
 
 export const atualizarProduto = async (req, res) => {
   try {
-    const { nome, descricao, preco, quantidade, categoria_id } = req.body;
+    const { nome, descricao, preco, quantidade, categoria_id, estoque_minimo } =
+      req.body;
 
     const [result] = await pool.query(
       `UPDATE produtos SET 
-       nome = ?, descricao = ?, preco = ?, 
-       quantidade = ?, categoria_id = ?
-       WHERE id = ?`,
-      [nome, descricao, preco, quantidade, categoria_id, req.params.id]
+   nome = ?, descricao = ?, preco = ?, 
+   quantidade = ?, categoria_id = ?, estoque_minimo = ?
+   WHERE id = ?`,
+      [
+        nome,
+        descricao,
+        preco,
+        quantidade,
+        categoria_id,
+        estoque_minimo,
+        req.params.id,
+      ]
     );
 
     if (result.affectedRows === 0) {

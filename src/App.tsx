@@ -5,6 +5,7 @@ import LoginPage from "./pages/LoginPage";
 import DashboardPage from "./pages/DashboardPage";
 import ProdutosPage from "./pages/ProdutosPage";
 import CategoriasPage from "./pages/CategoriasPage";
+import EstoquePage from "./pages/EstoquePage";
 
 function App() {
   return (
@@ -42,6 +43,17 @@ function App() {
             <PrivateRoute>
               <Layout>
                 <CategoriasPage />
+              </Layout>
+            </PrivateRoute>
+          }
+        />
+
+        <Route
+          path="/estoque"
+          element={
+            <PrivateRoute>
+              <Layout>
+                <EstoquePage />
               </Layout>
             </PrivateRoute>
           }

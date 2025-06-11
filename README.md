@@ -28,12 +28,12 @@
 
 ## 📦 Sprint 3 – Estoque e Movimentações
 
-- [ ] Criar tela de movimentações de estoque
-- [ ] Formulário para nova entrada de produto
-- [ ] Formulário para nova saída de produto
-- [ ] Atualizar estoque com base nas movimentações
-- [ ] Exibir histórico de movimentações com filtros
-- [ ] Exibir alertas de estoque baixo no dashboard
+- [x] Criar tela de movimentações de estoque
+- [x] Formulário para nova entrada de produto
+- [x] Formulário para nova saída de produto
+- [x] Atualizar estoque com base nas movimentações
+- [x] Exibir histórico de movimentações com filtros
+- [x] Exibir alertas de estoque baixo no dashboard
 
 ## 👥 Sprint 4 – Usuários e Perfil
 

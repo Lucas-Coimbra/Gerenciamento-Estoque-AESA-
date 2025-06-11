@@ -36,6 +36,9 @@ export default function HeaderWithSidebar() {
             <li>
               <Link to="/categorias">Categorias</Link>
             </li>
+            <li>
+              <Link to="/estoque">Estoque</Link>
+            </li>
           </ul>
         </nav>
       </header>

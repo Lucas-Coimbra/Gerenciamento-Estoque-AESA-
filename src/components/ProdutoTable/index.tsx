@@ -65,6 +65,7 @@ export default function ProdutoTable({
             <th>Nome</th>
             <th>Preço</th>
             <th>Estoque</th>
+            <th>Estoque Mínimo</th>
             <th>Categoria</th>
             <th>Ações</th>
           </tr>
@@ -75,6 +76,7 @@ export default function ProdutoTable({
               <td>{produto.nome}</td>
               <td>R$ {Number(produto.preco).toFixed(2).replace(".", ",")}</td>
               <td>{produto.quantidade}</td>
+              <td>{produto.estoque_minimo}</td>
               <td>{produto.categoria}</td>
               <td>
                 <button
@@ -106,8 +108,8 @@ export default function ProdutoTable({
             : ""
         }
         onConfirmar={() => {
-          if (produtoParaExcluir) {
-            onDelete(produtoParaExcluir.id!);
+          if (produtoParaExcluir?.id) {
+            onDelete(produtoParaExcluir.id);
             setProdutoParaExcluir(null);
           }
         }}

@@ -127,6 +127,7 @@ export default function ProdutosPage() {
                 preco: 0,
                 quantidade: 0,
                 categoria_id: categorias[0]?.id || 0,
+                estoque_minimo: 5,
               }
             }
           />

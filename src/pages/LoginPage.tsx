@@ -22,6 +22,7 @@ export default function LoginPage() {
 
       if (response.data.success) {
         localStorage.setItem("token", response.data.token);
+        localStorage.setItem("usuario", JSON.stringify(response.data.user));
         navigate("/dashboard");
       } else {
         setErro(response.data.message || "Erro ao fazer login");

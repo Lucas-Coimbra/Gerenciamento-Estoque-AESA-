@@ -13,6 +13,7 @@ export const produtoService = {
       preco: produto.preco,
       quantidade: produto.quantidade,
       categoria_id: produto.categoria_id,
+      estoque_minimo: produto.estoque_minimo,
     });
   },
 
@@ -22,6 +23,7 @@ export const produtoService = {
       preco: produto.preco,
       quantidade: produto.quantidade,
       categoria_id: produto.categoria_id,
+      estoque_minimo: produto.estoque_minimo,
     });
   },
 
