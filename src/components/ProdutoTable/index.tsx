@@ -72,7 +72,14 @@ export default function ProdutoTable({
         </thead>
         <tbody>
           {produtosFiltrados.map((produto) => (
-            <tr key={produto.id}>
+            <tr
+              key={produto.id}
+              className={
+                produto.quantidade <= produto.estoque_minimo
+                  ? "produto-alerta"
+                  : ""
+              }
+            >
               <td>{produto.nome}</td>
               <td>R$ {Number(produto.preco).toFixed(2).replace(".", ",")}</td>
               <td>{produto.quantidade}</td>

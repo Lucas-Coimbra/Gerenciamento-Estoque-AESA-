@@ -67,6 +67,12 @@
   border: none;
 }
 
+.produto-alerta {
+  background-color: #fff3cd;
+  color: #856404;
+  font-weight: bold;
+}
+
 @media (max-width: 768px) {
   .produtos-table__btn-edit,
   .produtos-table__btn-delete {

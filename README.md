@@ -37,12 +37,12 @@
 
 ## 👥 Sprint 4 – Usuários e Perfil
 
-- [ ] Criar tela de informações do usuário
-- [ ] Permitir edição de dados pessoais
-- [ ] Adicionar alteração de senha
-- [ ] Criar tela de usuários (admin)
-- [ ] Permitir cadastro e edição de usuários
-- [ ] Implementar permissões básicas
+- [x] Criar tela de informações do usuário
+- [x] Permitir edição de dados pessoais
+- [x] Adicionar alteração de senha
+- [x] Criar tela de usuários (admin)
+- [x] Permitir cadastro e edição de usuários
+- [x] Implementar permissões básicas
 
 ## 📊 Sprint 5 – Relatórios, Categorias e Ajustes
 

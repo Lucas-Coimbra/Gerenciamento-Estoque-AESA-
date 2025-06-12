@@ -6,6 +6,8 @@ import DashboardPage from "./pages/DashboardPage";
 import ProdutosPage from "./pages/ProdutosPage";
 import CategoriasPage from "./pages/CategoriasPage";
 import EstoquePage from "./pages/EstoquePage";
+import PerfilPage from "./pages/PerfilPage";
+import UsuariosPage from "./pages/UsuariosPage";
 
 function App() {
   return (
@@ -54,6 +56,28 @@ function App() {
             <PrivateRoute>
               <Layout>
                 <EstoquePage />
+              </Layout>
+            </PrivateRoute>
+          }
+        />
+
+        <Route
+          path="/perfil"
+          element={
+            <PrivateRoute>
+              <Layout>
+                <PerfilPage />
+              </Layout>
+            </PrivateRoute>
+          }
+        />
+
+        <Route
+          path="/usuarios"
+          element={
+            <PrivateRoute>
+              <Layout>
+                <UsuariosPage />
               </Layout>
             </PrivateRoute>
           }

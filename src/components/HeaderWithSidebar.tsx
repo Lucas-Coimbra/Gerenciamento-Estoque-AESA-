@@ -31,13 +31,16 @@ export default function HeaderWithSidebar() {
               <Link to="/produtos">Produtos</Link>
             </li>
             <li>
-              <Link to="/usuario">Usuário</Link>
-            </li>
-            <li>
               <Link to="/categorias">Categorias</Link>
             </li>
             <li>
               <Link to="/estoque">Estoque</Link>
+            </li>
+            <li>
+              <Link to="/perfil">Perfil</Link>
+            </li>
+            <li>
+              <Link to="/usuarios">Usuário</Link>
             </li>
           </ul>
         </nav>

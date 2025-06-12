@@ -31,7 +31,7 @@ export const authenticate = async (req, res, next) => {
       });
     }
 
-    req.user = users[0];
+    req.usuario = users[0];
     next();
   } catch (error) {
     console.error(error);
@@ -44,7 +44,7 @@ export const authenticate = async (req, res, next) => {
 
 // Middleware para verificar se é admin
 export const isAdmin = (req, res, next) => {
-  if (req.user.nivel !== "admin") {
+  if (!req.usuario || req.usuario.nivel !== "admin") {
     return res.status(403).json({
       success: false,
       message: "Acesso restrito a administradores",

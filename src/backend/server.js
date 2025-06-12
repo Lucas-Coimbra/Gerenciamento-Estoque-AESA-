@@ -8,6 +8,7 @@ import authRouter from "./routes/authRoutes.js";
 import produtoRoutes from "./routes/produtos.js";
 import categoriaRoutes from "./routes/categorias.js";
 import movimentacoesRoutes from "./routes/movimentacoes.js";
+import usuariosRoutes from "./routes/usuarios.js";
 
 config();
 
@@ -29,6 +30,7 @@ app.use("/api/auth", authRouter);
 app.use("/api/produtos", produtoRoutes);
 app.use("/api/categorias", categoriaRoutes);
 app.use("/api/movimentacoes", movimentacoesRoutes);
+app.use("/api/usuarios", usuariosRoutes);
 
 // Rota de verificação de status do servidor
 app.get("/api/health", (req, res) => {

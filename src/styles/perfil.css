@@ -1,0 +1,115 @@
+.perfil-page-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.perfil-titulo {
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.perfil-campo {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.perfil-label {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.perfil-input {
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  transition: border-color 0.2s;
+}
+
+.perfil-input:focus {
+  border-color: #1976d2;
+  outline: none;
+}
+
+.perfil-input:disabled {
+  background-color: #f2f2f2;
+  color: #777;
+}
+
+.perfil-botoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.perfil-btn {
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.perfil-btn:hover {
+  background-color: #145aa3;
+}
+
+.perfil-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.perfil-btn-cancelar {
+  background-color: #9e9e9e;
+}
+
+.perfil-btn-cancelar:hover {
+  background-color: #757575;
+}
+
+.perfil-subtitulo {
+  font-size: 1.2rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.perfil-divisor {
+  margin: 2rem 0;
+  border: none;
+  border-top: 1px solid #ddd;
+}
+
+.perfil-loading {
+  text-align: center;
+  font-size: 1.1rem;
+  font-style: italic;
+  padding: 2rem;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  .perfil-page-container {
+    padding: 1.2rem;
+    margin: 1rem;
+  }
+
+  .perfil-btn {
+    width: 100%;
+  }
+
+  .perfil-botoes {
+    flex-direction: column;
+  }
+}

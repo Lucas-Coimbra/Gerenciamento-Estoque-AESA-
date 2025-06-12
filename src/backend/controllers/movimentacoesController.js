@@ -51,7 +51,7 @@ export const listarMovimentacoes = async (req, res) => {
 
 export const criarMovimentacao = async (req, res) => {
   const { produto_id, tipo, quantidade, observacao } = req.body;
-  const usuario_id = req.user.id;
+  const usuario_id = req.usuario.id;
 
   if (!produto_id || !tipo || !quantidade) {
     return res.status(400).json({ message: "Campos obrigatórios ausentes" });
