@@ -4,6 +4,7 @@ import type { UsuarioType } from "../types/usuario";
 import UsuarioTable from "../components/UsuarioTable";
 import UsuarioForm from "../components/UsuarioForm";
 import Mensagem from "../components/Mensagem";
+import "../styles/usuarios.css";
 
 export default function UsuariosPage() {
   const [usuarios, setUsuarios] = useState<UsuarioType[]>([]);
@@ -14,8 +15,7 @@ export default function UsuariosPage() {
   const [usuarioSelecionado, setUsuarioSelecionado] =
     useState<UsuarioType | null>(null);
   const [exibindoFormulario, setExibindoFormulario] = useState(false);
-  const [carregando, setCarregando] = useState(true);
-  const [temPermissao, setTemPermissao] = useState(false);
+  const [temPermissao, setTemPermissao] = useState<boolean | null>(null);
 
   const exibirMensagem = useCallback(
     (tipo: "sucesso" | "erro" | "aviso", texto: string) => {
@@ -37,21 +37,23 @@ export default function UsuariosPage() {
     const verificarPermissao = async () => {
       try {
         const res = await api.get("/auth/me");
-        const usuarioLogado: UsuarioType = res.data;
-        if (usuarioLogado.nivel !== "admin") {
+        console.log("🔐 Resultado de /auth/me:", res.data);
+        const usuarioLogado: UsuarioType = res.data.data;
+
+        if (usuarioLogado.nivel === "admin") {
+          setTemPermissao(true);
+          await carregarUsuarios();
+        } else {
+          setTemPermissao(false);
           exibirMensagem(
             "aviso",
             "Apenas administradores podem acessar esta página."
           );
-          setTemPermissao(false);
-        } else {
-          setTemPermissao(true);
-          await carregarUsuarios();
         }
-      } catch {
+      } catch (error) {
+        console.error("❌ Erro ao verificar permissão:", error);
+        setTemPermissao(false);
         exibirMensagem("erro", "Erro ao verificar permissão do usuário.");
-      } finally {
-        setCarregando(false);
       }
     };
 
@@ -91,17 +93,10 @@ export default function UsuariosPage() {
     }
   };
 
-  if (carregando) {
-    return <p>Carregando...</p>;
-  }
-
-  if (!temPermissao) {
-    return null; // Ou redirecionar: <Navigate to="/home" replace />
-  }
-
   return (
     <div className="usuarios-page">
       <h2>Gerenciamento de Usuários</h2>
+
       {mensagem && (
         <Mensagem
           tipo={mensagem.tipo}
@@ -110,25 +105,33 @@ export default function UsuariosPage() {
         />
       )}
 
-      <button onClick={handleNovoUsuario}>Novo Usuário</button>
-
-      {exibindoFormulario && (
-        <UsuarioForm
-          usuario={usuarioSelecionado}
-          onCancel={handleCancelar}
-          onSave={handleSalvar}
-          exibirMensagem={exibirMensagem}
-        />
-      )}
-
-      {usuarios.length > 0 ? (
-        <UsuarioTable
-          usuarios={usuarios}
-          onEditar={handleEditar}
-          onExcluir={handleExcluir}
-        />
+      {temPermissao === null ? (
+        <p>Carregando...</p>
+      ) : !temPermissao ? (
+        <p>Você não tem permissão para visualizar esta página.</p>
       ) : (
-        <p>Nenhum usuário encontrado.</p>
+        <>
+          <button onClick={handleNovoUsuario}>Novo Usuário</button>
+
+          {exibindoFormulario && (
+            <UsuarioForm
+              usuario={usuarioSelecionado}
+              onCancel={handleCancelar}
+              onSave={handleSalvar}
+              exibirMensagem={exibirMensagem}
+            />
+          )}
+
+          {usuarios.length > 0 ? (
+            <UsuarioTable
+              usuarios={usuarios}
+              onEditar={handleEditar}
+              onExcluir={handleExcluir}
+            />
+          ) : (
+            <p>Nenhum usuário encontrado.</p>
+          )}
+        </>
       )}
     </div>
   );

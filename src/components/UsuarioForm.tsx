@@ -44,6 +44,7 @@ export default function UsuarioForm({
 
     try {
       setCarregando(true);
+      console.log("📤 Enviando dados:", { nome, email, nivel, senha });
 
       if (usuario) {
         await api.put(`/usuarios/${usuario.id}`, {
@@ -64,7 +65,7 @@ export default function UsuarioForm({
 
       onSave();
     } catch (error) {
-      console.error("Erro ao salvar usuário:", error);
+      console.error("❌ Erro ao salvar usuário:", error);
       exibirMensagem("erro", "Erro ao salvar usuário");
     } finally {
       setCarregando(false);
