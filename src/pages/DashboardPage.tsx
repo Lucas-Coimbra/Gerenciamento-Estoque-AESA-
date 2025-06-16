@@ -35,7 +35,6 @@ export default function DashboardPage() {
           valor={estoqueBaixo}
           tipo="alerta"
         />
-        <CardEstoque titulo="Fornecedores" valor="12" />
       </div>
       <GraficoResumo />
     </div>
