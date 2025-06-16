@@ -8,6 +8,7 @@ import {
   Legend,
   CartesianGrid,
 } from "recharts";
+import "../../styles/graficoResumo.css";
 
 const dadosMock = [
   { mes: "Jan", entradas: 120, saidas: 60 },
@@ -19,8 +20,8 @@ const dadosMock = [
 
 export function GraficoResumo() {
   return (
-    <div className="grafico-container p-4 bg-white rounded-2xl shadow">
-      <h3 className="text-lg font-semibold mb-4">Resumo Mensal</h3>
+    <div className="grafico-resumo-container">
+      <h3 className="grafico-resumo-titulo">Resumo Mensal</h3>
       <ResponsiveContainer width="100%" height={300}>
         <BarChart
           data={dadosMock}

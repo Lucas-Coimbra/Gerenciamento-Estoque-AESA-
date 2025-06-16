@@ -1,0 +1,28 @@
+.grafico-resumo-container {
+  padding: 16px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  max-width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.grafico-resumo-titulo {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  .grafico-resumo-container {
+    padding: 12px;
+    border-radius: 12px;
+  }
+
+  .grafico-resumo-titulo {
+    font-size: 1rem;
+    text-align: center;
+  }
+}
